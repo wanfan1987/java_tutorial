@@ -18,19 +18,6 @@
    -->
 	<jpa:repositories base-package="org.wanfan.showcase.memo.dao" />
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>	
-	<!-- Jpa Entity Manager 配置 -->
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
-		<property name="dataSource" ref="dataSource"/>
-		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-		<property name="packagesToScan" value="org.wanfan.showcase.memo"/>
-		<property name="jpaProperties">
-			<props>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
-				<!-- 命名规则 My_NAME->MyName -->
-				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-			</props>
-		</property>
-	</bean>
 	
 	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="databasePlatform">
@@ -41,14 +28,32 @@
 		<property name="showSql" value="true" />
 		<property name="generateDdl" value="true"/>
 	</bean>
-	<context:property-placeholder ignore-resource-not-found="true"
-		location="classpath*:/jdbc/jdbc.properties"/>	
+	
+	<beans profile="dev">
+		<context:property-placeholder ignore-resource-not-found="true"
+			location="classpath*:/jdbc/jdbc.properties"/>	
+	
+		<!-- Spring提供的jdbc连接 -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+		</bean>
+		
+		<!-- Jpa Entity Manager 配置 -->
+		<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+			<property name="dataSource" ref="dataSource"/>
+			<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+			<property name="packagesToScan" value="org.wanfan.showcase.memo"/>
+			<property name="jpaProperties">
+				<props>
+					<prop key="hibernate.hbm2ddl.auto">create</prop>
+					<!-- 命名规则 My_NAME->MyName -->
+					<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				</props>
+			</property>
+		</bean>			
+	</beans>
 
-	<!-- Spring提供的jdbc连接 -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-	</bean>
 </beans>
