@@ -56,4 +56,6 @@
 		</bean>			
 	</beans>
 
+	<context:component-scan base-package="org.wanfan.showcase.memo">
+	</context:component-scan>
 </beans>

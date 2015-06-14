@@ -1,6 +1,6 @@
 package org.wanfan.showcase.memo;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,6 @@ public class AppTest {
 	private CrudRepository<Memo, String> repository;
 	@Test
 	public void testSpringDataJpaConfig() {
-			Assert.assertEquals(0, repository.count());
+			assertEquals(0, repository.count());
 	}
 }
