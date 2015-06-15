@@ -16,6 +16,10 @@
    <!--
    	配置Spring Data Jpa 并设置扫描所有dao的base package
    -->
+ 	<context:component-scan base-package="org.wanfan.showcase.memo">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>  
 	<jpa:repositories base-package="org.wanfan.showcase.memo.dao" />
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>	
 	
@@ -55,7 +59,4 @@
 			</property>
 		</bean>			
 	</beans>
-
-	<context:component-scan base-package="org.wanfan.showcase.memo">
-	</context:component-scan>
 </beans>

@@ -17,7 +17,11 @@ import org.wanfan.showcase.memo.dao.MemoDao;
 import org.wanfan.showcase.memo.domain.Memo;
 import org.wanfan.showcase.memo.service.impl.MemoServiceImpl;
 
-
+/**
+ * 使用Mockito和assertJ来进行单元测试
+ * @author andy
+ *
+ */
 public class MemoServiceTest {
 
 	//1 创建mock对象

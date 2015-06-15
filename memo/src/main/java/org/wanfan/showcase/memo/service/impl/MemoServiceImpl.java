@@ -1,12 +1,15 @@
 package org.wanfan.showcase.memo.service.impl;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.wanfan.showcase.memo.dao.MemoDao;
 import org.wanfan.showcase.memo.domain.Memo;
 import org.wanfan.showcase.memo.service.MemoService;
 
-@Component
+@Service
 public class MemoServiceImpl implements MemoService {
 	
 	@Autowired
@@ -14,6 +17,11 @@ public class MemoServiceImpl implements MemoService {
 
 	@Override
 	public Memo saveMemo(Memo memo) {
+		if (StringUtils.isNotBlank(memo.getId())) {
+			memo.setModifyDate(new Date());
+		} else {
+			memo.setCreateDate(new Date());
+		}
 		return memoDao.save(memo);
 	}
 	
@@ -30,9 +38,5 @@ public class MemoServiceImpl implements MemoService {
 	@Override
 	public Iterable<Memo> findAllMemo() {
 		return memoDao.findAll();
-	}
-	
-	public void setMemoDao(MemoDao memoDao) {
-		this.memoDao = memoDao;
 	}
 }
