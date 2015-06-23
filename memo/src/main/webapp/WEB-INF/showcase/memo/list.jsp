@@ -8,12 +8,15 @@
 <title>memo list</title>
 </head>
 <body>
-	<div><a href="addForm">add memo</a></div>
-	<c:forEach var="memo" items="${memos}">  
+	<div><a href="add">add memo</a></div>
+	<c:forEach var="memo" items="${memos}"> 
+		<div>
  		<span>${memo.title}</span>
- 		<span>${memo.content }</span>
- 		<span><a href="modifyForm?id=${memo.id}">modify</a></span>
+ 		<span>${memo.content}</span>
+ 		<span><a href="modify?id=${memo.id}">modify</a></span>
  		<span><a href="delete?id=${memo.id}">delete</a></span>
+ 		<span><a href="view?id=${memo.id}">view</a></span>
+ 		</div> 
 	</c:forEach>  
 </body>
 </html>

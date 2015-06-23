@@ -7,6 +7,6 @@
 <title>showcase</title>
 </head>
 <body>
-	<div><a href="memo">memo</a></div>
+	<div><a href="memo/list">memo</a></div>
 </body>
 </html>

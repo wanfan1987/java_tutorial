@@ -58,7 +58,7 @@ public class MemoController {
 	@RequestMapping(value="/delete")
 	public String deleteMemo(@RequestParam String id) {
 		memoService.deleteMemo(id);
-		return "memo/list";
+		return "redirect:memo/list";
 	}
 	
 	@RequestMapping(value="/view")

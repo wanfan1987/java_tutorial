@@ -6,16 +6,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-
-	<mvc:annotation-driven />
     
-    <context:component-scan base-package="org.wanfan.showcase.memo.web" >
+    <context:annotation-config />
+    <mvc:annotation-driven />
+    <context:component-scan base-package="org.wanfan.showcase" >
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-    
-    <context:annotation-config/>
 
     <bean class='org.springframework.web.servlet.view.InternalResourceViewResolver'>
         <property name='prefix'><value>/WEB-INF/showcase/</value></property>
         <property name='suffix'><value>.jsp</value></property>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> 
     </bean>
+    
+    <mvc:default-servlet-handler/> 
 </beans>

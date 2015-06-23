@@ -7,7 +7,7 @@
 <title>add memo</title>
 </head>
 <body>
-	<form action="addMemo">
+	<form action="add" method="post">
 		<div>
 			<label for="title">title:</label>
 			<input id="title" name="title" type="text"/>

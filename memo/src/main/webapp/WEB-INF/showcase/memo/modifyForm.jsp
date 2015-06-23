@@ -7,7 +7,7 @@
 <title>modify memo</title>
 </head>
 <body>
-	<form action="modifyMemo" method="post">
+	<form action="modify" method="post">
 		<input type="hidden" name="id" value="${memo.id}"/>
 		<div>
 			<label for="title">title:</label>
