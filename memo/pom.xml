@@ -23,6 +23,8 @@
 		<mockito.version>1.10.19</mockito.version>
 		<assertj.version>1.7.0</assertj.version>
 		<jstl.version>1.2</jstl.version>
+		<commons.lang3.version>3.3.2</commons.lang3.version>
+		<jaxb.version>2.2.11</jaxb.version>
 	</properties>
 
 	<dependencies>
@@ -64,11 +66,11 @@
 			<version>${spring.data.version}</version>
 		</dependency>
 		<!-- spring web mvc -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- hibernate as JPA provider -->
 		<dependency>
@@ -121,8 +123,14 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
+			<version>${commons.lang3.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+
 		<!-- web -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -139,8 +147,8 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
-		
+
+
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -153,38 +161,39 @@
 			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
 			<version>9.3.0.M1</version>
 			<scope>provided</scope>
-		</dependency>		
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>memo</finalName>
 		<pluginManagement>
 			<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<archiveClasses>true</archiveClasses>
-					<attachClasses>false</attachClasses>
-					<classesClassifier></classesClassifier>
-					<!-- 必须指定,否则默认会变成在target/war/work 导致被打包进war文件,指定后为target/work -->
-					<useCache>false</useCache>
-					<archive>
-						<addMavenDescriptor>true</addMavenDescriptor>
-					</archive>
-				</configuration>
-			</plugin>			
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<archiveClasses>true</archiveClasses>
+						<attachClasses>false</attachClasses>
+						<classesClassifier></classesClassifier>
+						<!-- 必须指定,否则默认会变成在target/war/work 导致被打包进war文件,指定后为target/work -->
+						<useCache>false</useCache>
+						<archive>
+							<addMavenDescriptor>true</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -194,10 +203,10 @@
 				<configuration>
 					<webAppConfig>
 						<!-- webapp -->
-						<contextPath>/hello</contextPath>
+						<contextPath>/showcase</contextPath>
 					</webAppConfig>
 				</configuration>
 			</plugin>
-		</plugins>		
+		</plugins>
 	</build>
 </project>
