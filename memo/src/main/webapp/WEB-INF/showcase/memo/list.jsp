@@ -17,7 +17,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="lead text-center text-capitalize">memo management</div>
+		<div class="page-header text-center lead text-capitalize">memo management</div>
+		
 		<div class="text-primary">
 			<a href="add">add memo</a>
 		</div>
