@@ -16,16 +16,16 @@
    <!--
    	配置Spring Data Jpa 并设置扫描所有dao的base package
    -->
-<!--  	<context:component-scan base-package="org.wanfan.showcase.memo">
+  	<context:component-scan base-package="org.wanfan.showcase">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
-	</context:component-scan>  --> 
-	<jpa:repositories base-package="org.wanfan.showcase.memo.dao" />
+	</context:component-scan>
+	<jpa:repositories base-package="org.wanfan.showcase" />
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>	
 	
 	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="databasePlatform">
-			<bean factory-method="getDialect" class="org.wanfan.showcase.memo.utils.Hibernates">
+			<bean factory-method="getDialect" class="org.wanfan.showcase.common.utils.Hibernates">
 				<constructor-arg ref="dataSource"/>
 			</bean>
 		</property>
@@ -49,7 +49,7 @@
 		<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
 			<property name="dataSource" ref="dataSource"/>
 			<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-			<property name="packagesToScan" value="org.wanfan.showcase.memo"/>
+			<property name="packagesToScan" value="org.wanfan.showcase"/>
 			<property name="jpaProperties">
 				<props>
 					<prop key="hibernate.hbm2ddl.auto">create</prop>

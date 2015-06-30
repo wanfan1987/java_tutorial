@@ -1,12 +1,8 @@
 package org.wanfan.showcase.memo.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import org.wanfan.showcase.common.domain.DomainBase;
 
 /**
  * 记事本
@@ -14,37 +10,17 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Memo implements Serializable {
+public class Memo extends DomainBase {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4710023248479791790L;
 
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Id
-	private String id;
-	
 	private String title;
 	
 	private String content;
 	
-	private Date createDate;
-	
-	private Date modifyDate;
-	
-	private String createPerson;
-	
-	private String modifyPerson;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -61,39 +37,6 @@ public class Memo implements Serializable {
 		this.content = content;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public Date getModifyDate() {
-		return modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
-	}
-
-	public String getCreatePerson() {
-		return createPerson;
-	}
-
-	public void setCreatePerson(String createPerson) {
-		this.createPerson = createPerson;
-	}
-
-	public String getModifyPerson() {
-		return modifyPerson;
-	}
-
-	public void setModifyPerson(String modifyPerson) {
-		this.modifyPerson = modifyPerson;
-	}
-
-	
 	@Override
 	public String toString() {
 		return "Memo [id=" + id + ", title=" + title + ", content=" + content

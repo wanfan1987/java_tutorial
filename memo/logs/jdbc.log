@@ -1,0 +1,257 @@
+2015-07-01 00:05:05.801 1. Connection.new Connection returned 
+2015-07-01 00:05:05.805 1. Connection.getMetaData() returned dbMeta0: conn0: url=jdbc:h2:mem:datajpa user=SA
+2015-07-01 00:05:05.805 1. Connection.close() returned 
+2015-07-01 00:05:06.530 2. Connection.new Connection returned 
+2015-07-01 00:05:06.530 2. Connection.getMetaData() returned dbMeta1: conn1: url=jdbc:h2:mem:datajpa user=SA
+2015-07-01 00:05:06.680 2. Connection.getCatalog() returned DATAJPA
+2015-07-01 00:05:06.684 2. Connection.getMetaData() returned dbMeta2: conn1: url=jdbc:h2:mem:datajpa user=SA
+2015-07-01 00:05:06.689 2. Connection.createClob() returned clob0: SPACE(0 /* table: -2 id: 1 */)
+2015-07-01 00:05:06.689 2. Connection.close() returned 
+2015-07-01 00:05:08.010 3. Connection.new Connection returned 
+2015-07-01 00:05:08.010 3. Connection.getAutoCommit() returned true
+2015-07-01 00:05:08.015 3. Statement.new Statement returned 
+2015-07-01 00:05:08.015 3. Connection.createStatement() returned net.sf.log4jdbc.StatementSpy@c269425
+2015-07-01 00:05:08.027 3. Statement.executeUpdate(alter table role_user drop constraint FK_1p4td69hdcg4iaau4pvj20m3h if exists) alter table role_user drop constraint FK_1p4td69hdcg4iaau4pvj20m3h if exists 
+
+org.h2.jdbc.JdbcSQLException: Table "ROLE_USER" not found; SQL statement:
+alter table role_user drop constraint FK_1p4td69hdcg4iaau4pvj20m3h if exists [42102-184]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5239)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5216)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5293)
+	at org.h2.command.Parser.parseAlter(Parser.java:4708)
+	at org.h2.command.Parser.parsePrepared(Parser.java:332)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at net.sf.log4jdbc.StatementSpy.executeUpdate(StatementSpy.java:697)
+	at org.hibernate.tool.hbm2ddl.DatabaseExporter.export(DatabaseExporter.java:64)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.perform(SchemaExport.java:418)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:372)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:304)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:293)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:517)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1859)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:852)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:845)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:398)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:844)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1570)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2015-07-01 00:05:08.042 3. Statement.executeUpdate(alter table role_user drop constraint FK_njajel6a2q8tr36emb9l8vw7n if exists) alter table role_user drop constraint FK_njajel6a2q8tr36emb9l8vw7n if exists 
+
+org.h2.jdbc.JdbcSQLException: Table "ROLE_USER" not found; SQL statement:
+alter table role_user drop constraint FK_njajel6a2q8tr36emb9l8vw7n if exists [42102-184]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5239)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5216)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5293)
+	at org.h2.command.Parser.parseAlter(Parser.java:4708)
+	at org.h2.command.Parser.parsePrepared(Parser.java:332)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at net.sf.log4jdbc.StatementSpy.executeUpdate(StatementSpy.java:697)
+	at org.hibernate.tool.hbm2ddl.DatabaseExporter.export(DatabaseExporter.java:64)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.perform(SchemaExport.java:418)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:372)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:304)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:293)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:517)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1859)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:852)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:845)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:398)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:844)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1570)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2015-07-01 00:05:08.048 3. Statement.executeUpdate(drop table memo if exists) returned 0
+2015-07-01 00:05:08.048 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.050 3. Statement.executeUpdate(drop table role if exists) returned 0
+2015-07-01 00:05:08.051 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.052 3. Statement.executeUpdate(drop table role_user if exists) returned 0
+2015-07-01 00:05:08.052 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.053 3. Statement.executeUpdate(drop table user if exists) returned 0
+2015-07-01 00:05:08.053 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.094 3. Statement.executeUpdate(create table memo (id varchar(255) generated by default as identity, create_date timestamp, create_person varchar(255), modify_date timestamp, modify_person varchar(255), content varchar(255), title varchar(255), primary key (id))) returned 0
+2015-07-01 00:05:08.094 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.100 3. Statement.executeUpdate(create table role (id varchar(255) generated by default as identity, create_date timestamp, create_person varchar(255), modify_date timestamp, modify_person varchar(255), description varchar(255), name varchar(255), primary key (id))) returned 0
+2015-07-01 00:05:08.100 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.102 3. Statement.executeUpdate(create table role_user (user_id varchar(255) not null, role_id varchar(255) not null)) returned 0
+2015-07-01 00:05:08.102 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.114 3. Statement.executeUpdate(create table user (id varchar(255) generated by default as identity, create_date timestamp, create_person varchar(255), modify_date timestamp, modify_person varchar(255), name varchar(255), primary key (id))) returned 0
+2015-07-01 00:05:08.114 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.141 3. Statement.executeUpdate(alter table role_user add constraint FK_1p4td69hdcg4iaau4pvj20m3h foreign key (role_id) references role) returned 0
+2015-07-01 00:05:08.141 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.155 3. Statement.executeUpdate(alter table role_user add constraint FK_njajel6a2q8tr36emb9l8vw7n foreign key (user_id) references user) returned 0
+2015-07-01 00:05:08.155 3. Statement.getWarnings() returned null
+2015-07-01 00:05:08.156 3. Statement.close() returned 
+2015-07-01 00:05:08.156 3. Connection.getWarnings() returned null
+2015-07-01 00:05:08.156 3. Connection.clearWarnings() returned 
+2015-07-01 00:05:08.156 3. Connection.close() returned 
+2015-07-01 00:05:15.779 4. Connection.new Connection returned 
+2015-07-01 00:05:15.780 4. Connection.getAutoCommit() returned true
+2015-07-01 00:05:15.781 4. Connection.setAutoCommit(false) returned 
+2015-07-01 00:05:15.898 4. PreparedStatement.new PreparedStatement returned 
+2015-07-01 00:05:15.899 4. Connection.prepareStatement(select role0_.id as id1_1_1_, role0_.create_date as create_d2_1_1_, role0_.create_person as create_p3_1_1_, role0_.modify_date as modify_d4_1_1_, role0_.modify_person as modify_p5_1_1_, role0_.description as descript6_1_1_, role0_.name as name7_1_1_, users1_.role_id as role_id2_1_3_, user2_.id as user_id1_2_3_, user2_.id as id1_3_0_, user2_.create_date as create_d2_3_0_, user2_.create_person as create_p3_3_0_, user2_.modify_date as modify_d4_3_0_, user2_.modify_person as modify_p5_3_0_, user2_.name as name6_3_0_ from role role0_ left outer join role_user users1_ on role0_.id=users1_.role_id left outer join user user2_ on users1_.user_id=user2_.id where role0_.id=?) returned net.sf.log4jdbc.PreparedStatementSpy@3e39baf0
+2015-07-01 00:05:15.906 4. PreparedStatement.setString(1, "0cb636db-07e4-407f-b210-11baa9939666") returned 
+2015-07-01 00:05:15.911 4. PreparedStatement.isWrapperFor(java.sql.CallableStatement) returned false
+2015-07-01 00:05:15.926 4. ResultSet.new ResultSet returned 
+2015-07-01 00:05:15.926 4. PreparedStatement.executeQuery() returned net.sf.log4jdbc.ResultSetSpy@2a8a3ada
+2015-07-01 00:05:15.927 4. ResultSet.next() returned false
+2015-07-01 00:05:15.954 4. ResultSet.close() returned 
+2015-07-01 00:05:15.955 4. PreparedStatement.getWarnings() returned null
+2015-07-01 00:05:15.955 4. PreparedStatement.clearWarnings() returned 
+2015-07-01 00:05:15.955 4. PreparedStatement.getMaxRows() returned 0
+2015-07-01 00:05:15.963 4. PreparedStatement.getQueryTimeout() returned 0
+2015-07-01 00:05:15.963 4. PreparedStatement.close() returned 
+2015-07-01 00:05:16.042 4. PreparedStatement.new PreparedStatement returned 
+2015-07-01 00:05:16.042 4. Connection.prepareStatement(insert into role (id, create_date, create_person, modify_date, modify_person, description, name) values (null, ?, ?, ?, ?, ?, ?), 1) returned net.sf.log4jdbc.PreparedStatementSpy@1a538ed8
+2015-07-01 00:05:16.046 4. PreparedStatement.setNull(1, 93) returned 
+2015-07-01 00:05:16.046 4. PreparedStatement.setNull(2, 12) returned 
+2015-07-01 00:05:16.047 4. PreparedStatement.setNull(3, 93) returned 
+2015-07-01 00:05:16.047 4. PreparedStatement.setNull(4, 12) returned 
+2015-07-01 00:05:16.048 4. PreparedStatement.setNull(5, 12) returned 
+2015-07-01 00:05:16.048 4. PreparedStatement.setNull(6, 12) returned 
+2015-07-01 00:05:16.059 4. PreparedStatement.executeUpdate() returned 1
+2015-07-01 00:05:16.067 4. ResultSet.new ResultSet returned 
+2015-07-01 00:05:16.067 4. PreparedStatement.getGeneratedKeys() returned net.sf.log4jdbc.ResultSetSpy@26865482
+2015-07-01 00:05:16.067 4. ResultSet.next() returned true
+2015-07-01 00:05:16.074 4. ResultSet.getMetaData() returned rsMeta0: columns=1
+2015-07-01 00:05:16.075 4. ResultSet.getString(1) returned 1
+2015-07-01 00:05:16.077 4. ResultSet.close() returned 
+2015-07-01 00:05:16.077 4. PreparedStatement.getWarnings() returned null
+2015-07-01 00:05:16.078 4. PreparedStatement.clearWarnings() returned 
+2015-07-01 00:05:16.078 4. PreparedStatement.getMaxRows() returned 0
+2015-07-01 00:05:16.079 4. PreparedStatement.getQueryTimeout() returned 0
+2015-07-01 00:05:16.079 4. PreparedStatement.close() returned 
+2015-07-01 00:05:16.132 4. Connection.commit() returned 
+2015-07-01 00:05:16.132 4. Connection.setAutoCommit(true) returned 
+2015-07-01 00:05:16.135 4. Connection.isClosed() returned false
+2015-07-01 00:05:16.136 4. Connection.getWarnings() returned null
+2015-07-01 00:05:16.136 4. Connection.clearWarnings() returned 
+2015-07-01 00:05:16.136 4. Connection.close() returned 
+2015-07-01 00:08:08.570 5. Connection.new Connection returned 
+2015-07-01 00:08:08.573 5. Connection.setReadOnly(true) returned 
+2015-07-01 00:08:08.573 5. Connection.getAutoCommit() returned true
+2015-07-01 00:08:08.573 5. Connection.setAutoCommit(false) returned 
+2015-07-01 00:08:08.576 5. PreparedStatement.new PreparedStatement returned 
+2015-07-01 00:08:08.576 5. Connection.prepareStatement(select role0_.id as id1_1_0_, role0_.create_date as create_d2_1_0_, role0_.create_person as create_p3_1_0_, role0_.modify_date as modify_d4_1_0_, role0_.modify_person as modify_p5_1_0_, role0_.description as descript6_1_0_, role0_.name as name7_1_0_ from role role0_ where role0_.id=?) returned net.sf.log4jdbc.PreparedStatementSpy@7698b7a4
+2015-07-01 00:08:08.576 5. PreparedStatement.setString(1, "0cb636db-07e4-407f-b210-11baa9939666") returned 
+2015-07-01 00:08:08.577 5. PreparedStatement.isWrapperFor(java.sql.CallableStatement) returned false
+2015-07-01 00:08:08.593 5. ResultSet.new ResultSet returned 
+2015-07-01 00:08:08.594 5. PreparedStatement.executeQuery() returned net.sf.log4jdbc.ResultSetSpy@2251b3bc
+2015-07-01 00:08:08.596 5. ResultSet.next() returned false
+2015-07-01 00:08:08.597 5. ResultSet.close() returned 
+2015-07-01 00:08:08.597 5. PreparedStatement.getWarnings() returned null
+2015-07-01 00:08:08.597 5. PreparedStatement.clearWarnings() returned 
+2015-07-01 00:08:08.603 5. PreparedStatement.getMaxRows() returned 0
+2015-07-01 00:08:08.607 5. PreparedStatement.getQueryTimeout() returned 0
+2015-07-01 00:08:08.607 5. PreparedStatement.close() returned 
+2015-07-01 00:08:08.608 5. Connection.commit() returned 
+2015-07-01 00:08:08.608 5. Connection.setAutoCommit(true) returned 
+2015-07-01 00:08:08.609 5. Connection.isReadOnly() returned false
+2015-07-01 00:08:08.609 5. Connection.isClosed() returned false
+2015-07-01 00:08:08.609 5. Connection.getWarnings() returned null
+2015-07-01 00:08:08.609 5. Connection.clearWarnings() returned 
+2015-07-01 00:08:08.609 5. Connection.close() returned 

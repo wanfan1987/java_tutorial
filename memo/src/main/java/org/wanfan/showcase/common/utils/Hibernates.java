@@ -1,4 +1,4 @@
-package org.wanfan.showcase.memo.utils;
+package org.wanfan.showcase.common.utils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
