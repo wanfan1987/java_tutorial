@@ -1,5 +1,7 @@
 package org.wanfan.showcase.user.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wanfan.showcase.user.dao.RoleDao;
@@ -48,6 +50,16 @@ public class RoleServiceImpl implements RoleService {
 
 	public void setRoleDao(RoleDao roleDao) {
 		this.roleDao = roleDao;
+	}
+
+	@Override
+	public List<Role> findRolesByNameLike(String name) {
+		return roleDao.findRoleByNameLike(name);
+	}
+
+	@Override
+	public List<Role> findRolesByDescriptionLike(String description) {
+		return roleDao.findByDescriptionLike(description);
 	}
 
 }

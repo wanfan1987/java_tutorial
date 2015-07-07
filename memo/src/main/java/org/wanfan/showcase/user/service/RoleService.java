@@ -1,5 +1,7 @@
 package org.wanfan.showcase.user.service;
 
+import java.util.List;
+
 import org.wanfan.showcase.user.domain.Role;
 
 /**
@@ -18,6 +20,10 @@ public interface RoleService {
 	Role findRole(String id);
 	
 	Iterable<Role> findRolesByName(String name);
+	
+	List<Role> findRolesByNameLike(String name);
+	
+	List<Role> findRolesByDescriptionLike(String description);
 	
 	Iterable<Role> findAllRoles();
 }

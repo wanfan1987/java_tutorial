@@ -12,13 +12,11 @@ public interface UserService {
 
 	User saveUser(User user);
 	
-	void deleteUser(String id);
+	void deleteUser(User user);
 	
 	void deleteUsers(Iterable<User> users);
 	
 	User findUser(String id); 
 	
 	Iterable<User> findAllUsersByPage(Pageable pageable);
-	
-	User findUser(User user);
 }

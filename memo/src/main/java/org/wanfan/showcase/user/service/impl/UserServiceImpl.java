@@ -15,12 +15,13 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User saveUser(User user) {
+		userDao.someCustomMethod(user);
 		return userDao.save(user);
 	}
 
 	@Override
-	public void deleteUser(String id) {
-		userDao.delete(id);
+	public void deleteUser(User user) {
+		userDao.delete(user);
 	}
 
 	@Override
@@ -31,11 +32,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findUser(String id) {
 		return userDao.findOne(id);
-	}
-
-	@Override
-	public User findUser(User user) {
-		return userDao.findOne(user);
 	}
 
 	@Override

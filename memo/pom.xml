@@ -26,6 +26,7 @@
 		<commons.lang3.version>3.3.2</commons.lang3.version>
 		<jaxb.version>2.2.11</jaxb.version>
 		<log4jdbc.version>1.2</log4jdbc.version>
+		<sitemesh.version>3.0.1</sitemesh.version>
 	</properties>
 
 	<dependencies>
@@ -127,10 +128,22 @@
 			<version>${commons.lang3.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
 			<version>${jaxb.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 
 		<!-- web -->
 		<dependency>
@@ -148,7 +161,11 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.sitemesh</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>${sitemesh.version}</version>
+		</dependency>
 
 		<!-- logging -->
 		<dependency>

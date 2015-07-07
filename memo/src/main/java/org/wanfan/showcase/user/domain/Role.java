@@ -2,10 +2,12 @@ package org.wanfan.showcase.user.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedQuery;
 
 import org.wanfan.showcase.common.domain.DomainBase;
 
@@ -16,6 +18,9 @@ import org.wanfan.showcase.common.domain.DomainBase;
  *
  */
 @Entity
+// NamedQuery的like语句需要将%放在参数里，否则执行时候会解析失败
+@NamedQuery(name="Role.findRoleByNameLike", query="select r from Role r where r.name like ?1")
+@NamedEntityGraph(name="graph.Role.users", attributeNodes=@NamedAttributeNode("users"))
 public class Role extends DomainBase {
 
 	/**
@@ -27,8 +32,7 @@ public class Role extends DomainBase {
 	
 	private String description;
 	
-	@ManyToMany(cascade=CascadeType.ALL, 
-			mappedBy="roles", 
+	@ManyToMany(mappedBy="roles", 
 			fetch = FetchType.LAZY)
 	private List<User> users;
 	

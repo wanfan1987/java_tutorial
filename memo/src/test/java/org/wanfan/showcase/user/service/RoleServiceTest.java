@@ -1,7 +1,6 @@
 package org.wanfan.showcase.user.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +64,23 @@ public class RoleServiceTest {
 		Iterable<Role> roles = roleService.findRolesByName(role.getName());
 		assertThat(roles.iterator().next().getName()).isEqualTo(role.getName());
 	}
-
+	
+	@Test
+	public void testFindRolesByNameLike() {
+		Role role = getRole();
+		role = roleService.saveRole(role);
+		List<Role> roles = roleService.findRolesByNameLike("rol%");
+		assertThat(roles.iterator().next().getName()).isEqualTo(role.getName());
+	}
+	
+	@Test
+	public void testFindByDescriptionLike() {
+		Role role = getRole();
+		role = roleService.saveRole(role);
+		List<Role> roles = roleService.findRolesByDescriptionLike("rol");
+		assertThat(roles.iterator().next().getName()).isEqualTo(role.getName());
+	}
+	
 	@Test
 	public void testFindAllRoles() {
 		Role role = getRole();
