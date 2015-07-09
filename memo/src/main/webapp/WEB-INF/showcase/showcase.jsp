@@ -16,14 +16,35 @@
 <title>showcase</title>
 </head>
 <body >
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		    <a class="navbar-brand" href="#">Wanfan</a>
+		</div>
+		<div>
+		    <ul class="nav navbar-nav">
+		    	<li class="active"><a href="${ctx}/memo/list">memo</a></li>
+		    	<li><a href="#">user management</a></li>
+		      	<li><a href="#">blog</a></li>
+		      	<li><a href="#">book store</a></li>
+		    </ul>
+		</div>
+	</div>
+</nav>
+
 <div class="container">
-	<h1>Showcase</h1>
+	<div class="jumbotron">
+      <h1>欢迎我的Showcase的首页！</h1>
+      <p>这是展示一些Java web技术</p>
+    </div>
 	<div id="content"></div>
+	
 	<script src="${ctx}/resources/react/build/react.js"></script>
     <script src="${ctx}/resources/react/build/JSXTransformer.js"></script>
 	<script src="${ctx}/resources/jquery/jquery-1.11.3.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="${ctx}/resources/bootstrap/js/bootstrap.min.js"></script>    
+	<script src="${ctx}/resources/bootstrap/js/bootstrap.min.js"></script> 
+	<!-- 
     <script type="text/jsx">
 		var MemoEntry = React.createClass({
   			render: function() {
@@ -42,6 +63,7 @@
   			document.getElementById('content')
 		);
     </script>
+     -->   
 </div>    
 </body>
 
